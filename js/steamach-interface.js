@@ -7,8 +7,20 @@ $(document).ready(function() {
 
   $("#steam-user").submit(function(event) {
     event.preventDefault();
-    user1 = new SteamUser($("#steamuser-1").val());
-    user2 = new SteamUser($("#steamuser-2").val());
+    let userId1 = $("#steamuser-1").val()
+    let userId2 = $("#steamuser-2").val()
+    console.log(userId1);
+    SteamUser.getUsers({
+      steamIds: [userId1, userId2],
+      success: function(steamUsers) {
+        user1 = steamUsers[userId1];
+        user2 = steamUsers[userId2];
+
+      },
+      error: function() {
+
+      }
+    })
 
   });
 
