@@ -1,5 +1,5 @@
 {
-  "name": "Steam Achievements",
+  "name": "steamach",
   "description": "Uses steam API to compare achievements between multiple steam users",
   "main": "index.js",
   "authors": [

@@ -21,7 +21,16 @@ $ npm install
 $ bower install
 $ gulp build
 ```
+## API Key
+This application requires a STEAM API Key.
+You can get a key [Here](http://steamcommunity.com/dev/apikey)
 
+Once that is created, you must make a `.env` file in the root directory.
+Inside, enter your API key like this:
+``` Javascript
+
+exports.steamAPI = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+```
 
 ## Usage
 to view or edit the website, enter:
