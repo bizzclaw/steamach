@@ -2,6 +2,30 @@ body {
   background-color: grey;
 }
 
+.game {
+  width: 100;
+  height: auto;
+  margin-bottom: 5px;
+}
+
+.gameimg {
+  width: 60%;
+  max-width: 512px;
+  min-width: 256px;
+}
+
+.achievement {
+  width: 100%;
+  height: auto;
+  margin-bottom: 5px;
+  background-color: rgb(70,70,70);
+}
+
+.ach-info {
+  margin-top: -5px;
+  font-size: 24px;
+  text-align: left;
+}
 
 .gameimg:hover {
   cursor: pointer;

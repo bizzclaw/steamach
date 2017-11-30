@@ -40,9 +40,9 @@ $(document).ready(function() {
                   return false;
                 }
                 $("#gamelist").append(`
-                  <li>
+                  <div class = "game">
                   <img value=${game.appid} class="gameimg" src="http://media.steampowered.com/steamcommunity/public/images/apps/${game.appid}/${game.img_logo_url}.jpg">
-                  </li>
+                  </div>
                   `);
               });
 
@@ -54,32 +54,48 @@ $(document).ready(function() {
                 user1.GetAchievements(appid, function(user1achievements) {
                   user2.GetAchievements(appid, function(user2achievements) {
                     let filled = {}
-                    for (let k=0; k<user1achievements.length; k++) {
-                      let v = user1achievements[k];
-                      let user1Unlocked = user1achievements[k].achieved === 1;
-                      let user2Unlocked = user2achievements[k].achieved === 1;
-                      let outputId;
-                      if (user1Unlocked & !user2Unlocked) {
-                        outputId = "yours";
-                      }
-                      else if (user1Unlocked & user2Unlocked) {
-                        outputId = "shared";
-                      }
-                      else if (!user1Unlocked & user2Unlocked) {
-                        outputId = "theirs";
+
+                    SteamUser.getGame(appid, function(game) {
+                      let achPanel = $("#achievements-title")
+                      let achievements = game.availableGameStats.achievements
+                      if (! achievements) {
+                        achPanel.text(game.gameName + " has no Achievements")
                       }
                       else {
-                        outputId = "neither";
-                      }
-                      let domObj = $("#ach-"+outputId)
+                        achPanel.text(game.gameName + ` has ${achievements.length} Achievements`)
+                        for (let k=0; k<achievements.length; k++) {
+                          let v = achievements[k];
+                          let user1Unlocked = user1achievements[k].achieved === 1;
+                          let user2Unlocked = user2achievements[k].achieved === 1;
+                          let outputId;
+                          if (user1Unlocked & !user2Unlocked) {
+                            outputId = "yours";
+                          }
+                          else if (user1Unlocked & user2Unlocked) {
+                            outputId = "shared";
+                          }
+                          else if (!user1Unlocked & user2Unlocked) {
+                            outputId = "theirs";
+                          }
+                          else {
+                            outputId = "neither";
+                          }
+                          let outPutPanel = $("#ach-"+outputId)
 
-                      if (! filled[outputId]) {
-                        domObj.append(`<h2>`+ domObj.attr("name") +`</h2>`)
-                        filled[outputId] = true
-                      }
+                          if (! filled[outputId]) {
+                            outPutPanel.append(`<h2>`+ outPutPanel.attr("name") +`</h2>`)
+                            filled[outputId] = true
+                          }
 
-                      domObj.append(`<li>${v.name}</li>`)
-                    }
+                          outPutPanel.append(`
+                            <div class="achievement">
+                            <img class="icon" src="${v.icon}">
+                            <span class="ach-name">${v.displayName}</span>
+                            </div>
+                          `)
+                        }
+                      }
+                    })
                   });
                 });
               });

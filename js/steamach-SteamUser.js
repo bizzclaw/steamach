@@ -3,6 +3,22 @@ const steamKey = apiKeys.steamAPI;
 
 export class SteamUser {
 
+  static getGame(appid, callback) {
+    $.ajax({
+      url: `http://api.steampowered.com/ISteamUserStats/GetSchemaForGame/v2/?key=${steamKey}&appid=${appid}`,
+      type: "GET",
+      data: {
+        format: "json"
+      },
+      success: function(response) {
+        callback(response.game)
+      },
+      error: function(error) {
+        callback(false, error)
+      }
+    })
+  }
+
   static getUsers(data) {
     let steamIds = ""
     data.steamIds.forEach(function(id) {
@@ -56,7 +72,7 @@ export class SteamUser {
   GetAchievements(appid, callback) {
     let id = this.summary.steamid;
     $.ajax({
-      url: `http://api.steampowered.com/ISteamUserStats/GetPlayerAchievements/v0001/?appid=${appid}&key=${steamKey}&steamid=${id}&l=1`,
+      url: `http://api.steampowered.com/ISteamUserStats/GetPlayerAchievements/v0001/?appid=${appid}&key=${steamKey}&steamid=${id}`,
       type: "GET",
       data: {
         format: "json"
