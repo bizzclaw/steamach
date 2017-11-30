@@ -1,0 +1,31 @@
+body {
+  background-color: grey;
+}
+
+
+.gameimg:hover {
+  cursor: pointer;
+}
+
+#panel-achievements {
+  height: 1024px;
+  overflow: scroll;
+}
+
+#panel-games {
+  height: 1024px;
+  overflow: scroll;
+}
+
+#ach-yours {
+  color: rgb(0,130,255);
+}
+#ach-shared {
+  color: green;
+}
+#ach-theirs {
+  color: darkorange;
+}
+#ach-neither {
+  color: grey;
+}

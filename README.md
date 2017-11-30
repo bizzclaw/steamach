@@ -4,6 +4,11 @@ Joseph Tomlinson
 ## Description
 Uses steam API to compare achievements between multiple steam users
 
+** WARNING **
+
+This project should only be used for educational purposes.
+Because the API calls on this project are client-side, this project is not suitable to be deployed as a live web server.
+
 ## Requirements
 Node packet Manager (NPM)
 
@@ -14,7 +19,7 @@ Download as zip, or clone to your machine.
 
 open the terminal/command line and cd into the project's directory
 
-download all dependices by entering the following commands in order:
+download all dependencies by entering the following commands in order:
 ```
 
 $ npm install

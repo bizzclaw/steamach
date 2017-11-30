@@ -52,4 +52,21 @@ export class SteamUser {
       }
     });
   }
+
+  GetAchievements(appid, callback) {
+    let id = this.summary.steamid;
+    $.ajax({
+      url: `http://api.steampowered.com/ISteamUserStats/GetPlayerAchievements/v0001/?appid=${appid}&key=${steamKey}&steamid=${id}&l=1`,
+      type: "GET",
+      data: {
+        format: "json"
+      },
+      success: function(response) {
+        callback(response.playerstats.achievements)
+      },
+      error: function(error) {
+        callback(false)
+      }
+    });
+  }
 }
