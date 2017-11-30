@@ -8,6 +8,7 @@ export class SteamUser {
     data.steamIds.forEach(function(id) {
       steamIds += ","+id
     });
+
     $.ajax({
       url: `http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${steamKey}&steamids=${steamIds}`,
       type: "GET",
@@ -24,8 +25,7 @@ export class SteamUser {
 
         data.success(steamUsers);
       },
-      backend: function(error) {
-        this.passed = false;
+      error: function(error) {
         console.log("Call Failed: " + error);
         data.error(error);
       }
@@ -37,22 +37,19 @@ export class SteamUser {
   }
 
   GetLibrary(callback) {
+    let id = this.summary.steamid
     $.ajax({
-      url: `http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${steamKey}&steamids=${steamId }`,
+      url: `http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=${steamKey}&steamid=${id}&format=json&include_appinfo=1`,
       type: "GET",
       data: {
         format: "json"
       },
       success: function(response) {
-        this.summary = response.response.players[0];
-        this.passed = true;
-        console.log(this.summary);
+        callback(response.response.games)
       },
-      backend: function(error) {
-        this.passed = false;
-        console.log("Call Failed: " + error);
+      error: function(error) {
+        callback(false)
       }
     });
-    callback(resoult)
   }
 }
