@@ -21,9 +21,14 @@ body {
   background-color: rgb(70,70,70);
 }
 
+.ach-icon {
+  width: 100;
+  height: auto;
+  margin: 0px;
+  padding: 0px;
+}
+
 .ach-info {
-  margin-top: -5px;
-  font-size: 24px;
   text-align: left;
 }
 

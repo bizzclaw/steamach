@@ -88,9 +88,14 @@ $(document).ready(function() {
                           }
 
                           outPutPanel.append(`
-                            <div class="achievement">
-                            <img class="icon" src="${v.icon}">
-                            <span class="ach-name">${v.displayName}</span>
+                            <div class="row achievement no-padding">
+                              <div class="col-md-5" class="no-padding">
+                                <img class="ach-icon" src="${v.icon}">
+                              </div>
+                              <div class="col-md-7 ach-info no-padding">
+                                <h3>${v.displayName}</h3>
+                                <p>${v.description}</p>
+                              </div>
                             </div>
                           `)
                         }
