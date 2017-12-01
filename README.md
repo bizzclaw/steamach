@@ -1,5 +1,5 @@
 # Steam Achievements
-Joseph Tomlinson
+Joseph Tomlinson, James Osborn
 
 ## Description
 Uses steam API to compare achievements between multiple steam users

@@ -10,10 +10,10 @@
   </head>
   <body>
     <div class="jumbotron text-center">
-      <h1>Steam Achievement Analyzer</h1>
+      <img src="img/steam_small.png" id="smaller-img"><h1>Steam Achievement Analyzer</h1>
     </div>
     <div class="container">
-      <div class="well">
+      <div class="well" id="wide-well">
         <h4>How do I find someone's Steam ID?</h4>
         <p>There are a few ways to acquire a numerical Steam ID. We recommend using <a href="https://steamidfinder.com">Steam ID Finder</a>, a great free tool. Enter a Steam Name in the text field (must be the permanent Steam Persona Name, not the temporary Steam profile name) and search. A unique, numerical Steam ID will be returned.</p>
         <form id="steam-user">
@@ -30,15 +30,15 @@
         <h3 id="steamid-error"></h3>
       </div>
 
-      <div class="row">
+      <div class="row" id="wide-row">
         <div id="panel-games" class="col-md-5 well">
-          <h2>Shared Games</h2>
+          <h1>Shared Games</h1>
           <div id="gamelist" class="nostyle">
 
           </div>
         </div>
         <div id="panel-achievements" class="col-md-7 well">
-          <h1 id="achievements-title">Select a game to Compare achievements.</h1>
+          <h1 id="achievements-title">Select a Game to compare achievements</h1>
           <div id="ach-yours" name="You've unlocked">
           </div>
           <div id="ach-shared" name="You've both unlocked">

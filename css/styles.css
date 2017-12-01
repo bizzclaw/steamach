@@ -1,5 +1,5 @@
 body {
-  background-color: grey;
+  background-color: darkblue;
 }
 
 .game {
@@ -21,11 +21,31 @@ body {
   background-color: rgb(70,70,70);
 }
 
+#wide-well {
+  width: 1200px;
+  margin-left: 1px;
+  margin-right: 1px;
+}
+
+#wide-row {
+  width: 1200px;
+  margin-left: 1px;
+  margin-right: 1px;
+}
+
+#smaller-img {
+  width: 75px;
+  height: 75px;
+}
+
+.no-padding {
+  margin: 0px;
+  padding: 0px;
+}
+
 .ach-icon {
   width: 100;
   height: auto;
-  margin: 0px;
-  padding: 0px;
 }
 
 .ach-info {
